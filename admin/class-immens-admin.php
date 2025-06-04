@@ -1,11 +1,9 @@
 <?php
-
-defined('ABSPATH') or die('No script kiddies please!');
-
 class Immens_Admin {
     public static function init() {
         add_action('admin_menu', [self::class, 'add_admin_menu']);
         add_action('admin_enqueue_scripts', [self::class, 'enqueue_assets']);
+        add_action('admin_bar_menu', [self::class, 'add_admin_bar_notifications'], 100);
     }
 
     public static function add_admin_menu() {
@@ -16,7 +14,7 @@ class Immens_Admin {
             'immens-dashboard',
             [self::class, 'render_dashboard'],
             'dashicons-businessperson',
-            6
+            1
         );
         
         $submenu_items = [
@@ -59,7 +57,8 @@ class Immens_Admin {
             
             wp_localize_script('immens-admin-js', 'immens_data', [
                 'ajax_url' => admin_url('admin-ajax.php'),
-                'nonce' => wp_create_nonce('immens_nonce')
+                'nonce' => wp_create_nonce('immens_nonce'),
+                'admin_url' => admin_url()
             ]);
         }
     }
@@ -73,5 +72,41 @@ class Immens_Admin {
         require_once IMMENS_PLUGIN_DIR . 'admin/partials/request-service.php';
     }
     
-    // ... altre funzioni di rendering ...
+    public static function render_services() {
+        require_once IMMENS_PLUGIN_DIR . 'admin/partials/services.php';
+    }
+    
+    public static function render_value_content() {
+        require_once IMMENS_PLUGIN_DIR . 'admin/partials/value-content.php';
+    }
+    
+    public static function render_testimonials() {
+        require_once IMMENS_PLUGIN_DIR . 'admin/partials/testimonials.php';
+    }
+    
+    public static function render_notifications() {
+        require_once IMMENS_PLUGIN_DIR . 'admin/partials/notifications.php';
+    }
+    
+    public static function render_client_profile() {
+        require_once IMMENS_PLUGIN_DIR . 'admin/partials/client-profile.php';
+    }
+
+    public static function add_admin_bar_notifications($admin_bar) {
+        $unread_count = 3; // Sostituire con conteggio reale
+        $admin_bar_enabled = get_user_meta(get_current_user_id(), 'immens_adminbar_notifications', true) ?: 'yes';
+        
+        if ($admin_bar_enabled === 'yes' && $unread_count > 0) {
+            $admin_bar->add_node([
+                'id'    => 'immens-notifications',
+                'title' => '<span class="ab-icon dashicons dashicons-bell"></span> <span class="ab-label">' . $unread_count . '</span>',
+                'href'  => admin_url('admin.php?page=immens-notifications'),
+                'meta'  => [
+                    'title' => __('Notifiche Immens'),
+                    'class' => 'immens-notifications-menu'
+                ],
+            ]);
+        }
+    }
+
 }

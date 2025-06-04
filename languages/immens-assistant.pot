@@ -1,0 +1,28 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Immens Assistant\n"
+"POT-Creation-Date: 2023-06-15 12:00+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+msgid "Immens Assistant"
+msgstr ""
+
+msgid "Dashboard"
+msgstr ""
+
+msgid "Request Service"
+msgstr ""
+
+msgid "Services & Packages"
+msgstr ""
+
+msgid "Value Content"
+msgstr ""
+
+# ... [add all other translatable strings from the plugin] ...

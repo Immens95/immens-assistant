@@ -2,14 +2,14 @@
 /**
  * Plugin Name: Immens Assistant
  * Description: Assistente completo per la gestione dei servizi digitali
- * Version: 1.0.0
- * Author: Il tuo Nome
+ * Version: 1.0.1
+ * Author: Studio Immens
  */
 
 defined('ABSPATH') or die('No script kiddies please!');
 
 // Definisci costanti
-define('IMMENS_VERSION', '1.0.0');
+define('IMMENS_VERSION', '1.0.1');
 define('IMMENS_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('IMMENS_PLUGIN_URL', plugin_dir_url(__FILE__));
 
