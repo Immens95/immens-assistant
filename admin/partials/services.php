@@ -4,7 +4,6 @@ $package_services = Immens_Database::get_package_services();
 // var_dump($package_services);
 // echo "</pre>";
 ?>
-
 <div class="immens-container">
     <div class="immens-card">
         <h2>Servizi & Pacchetti</h2>

@@ -1,7 +1,7 @@
 <?php
 $user_id = get_current_user_id();
 $digital_level = get_user_meta($user_id, 'immens_digital_level', true) ?: 35;
-$loyalty_points = get_user_meta($user_id, 'immens_loyalty_points', true) ?: 120;
+$loyalty_points = get_user_meta($user_id, 'immens_loyalty_points', true) ?: 0;
 $completed_missions = 3;
 $total_missions = 8;
 
@@ -23,6 +23,7 @@ $site_health = [
     'speed_score' => 54,
     'security_score' => 92
 ];
+
 ?>
 
 <div class="immens-container">
@@ -35,7 +36,7 @@ $site_health = [
                 <span>Livello <?php echo floor($loyalty_points/100) + 1; ?></span>
             </div>
         </div>
-        <p class="subtitle">Ecco la tua situazione digitale aggiornata</p>
+        <p class="si_subtitle">Ecco la tua situazione digitale aggiornata</p>
         
         <div class="digital-health">
             <div class="health-metric">

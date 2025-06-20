@@ -9,14 +9,14 @@
             <div class="form-group">
                 <label>Endpoint API Studio Immens</label>
                 <input type="url" name="immens_api_endpoint" 
-                       value="<?= esc_attr(get_option('immens_api_endpoint')) ?>" 
+                       value="<?php esc_attr(get_option('immens_api_endpoint')); ?>" 
                        class="immens-input" required>
             </div>
             
             <div class="form-group">
                 <label>Token API</label>
                 <input type="text" name="immens_api_token" 
-                       value="<?= esc_attr(get_option('immens_api_token')) ?>" 
+                       value="<?php esc_attr(get_option('immens_api_token')); ?>" 
                        class="immens-input" required>
             </div>
             

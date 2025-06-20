@@ -9,7 +9,7 @@ class Immens_Admin {
     public static function add_admin_menu() {
         add_menu_page(
             'Immens Assistant',
-            'Immens',
+            'Immens Assistant',
             'manage_options',
             'immens-dashboard',
             [self::class, 'render_dashboard'],
@@ -19,11 +19,11 @@ class Immens_Admin {
         
         $submenu_items = [
             ['Richiedi Servizio', 'request-service'],
-            ['Servizi & Pacchetti', 'services'],
             ['Valore Continuo', 'value-content'],
+            ['Profilo Cliente', 'client-profile'],
             ['Testimonianze', 'testimonials'],
             ['Notifiche', 'notifications'],
-            ['Profilo Cliente', 'client-profile']
+            ['API', 'api-settings'],
         ];
         
         foreach ($submenu_items as $item) {
@@ -42,14 +42,14 @@ class Immens_Admin {
         if (strpos($hook, 'immens-') !== false) {
             wp_enqueue_style(
                 'immens-admin-css', 
-                IMMENS_PLUGIN_URL . 'admin/css/immens-admin.css',
+                IMMENS_PLUGIN_URL . 'admin/immens-admin.css',
                 [],
                 IMMENS_VERSION
             );
             
             wp_enqueue_script(
                 'immens-admin-js',
-                IMMENS_PLUGIN_URL . 'admin/js/immens-admin.js',
+                IMMENS_PLUGIN_URL . 'admin/immens-admin.js',
                 ['jquery'],
                 IMMENS_VERSION,
                 true
@@ -74,6 +74,10 @@ class Immens_Admin {
     
     public static function render_services() {
         require_once IMMENS_PLUGIN_DIR . 'admin/partials/services.php';
+    }
+    
+    public static function render_api_settings() {
+        require_once IMMENS_PLUGIN_DIR . 'admin/partials/api-settings.php';
     }
     
     public static function render_value_content() {
